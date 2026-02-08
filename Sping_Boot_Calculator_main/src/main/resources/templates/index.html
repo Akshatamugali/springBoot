@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Calculator</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(120deg,#1f1c2c,#928dab);
+}
+
+.box{
+    width:340px;
+    padding:35px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(15px);
+    box-shadow:0 8px 32px rgba(0,0,0,0.4);
+    text-align:center;
+    color:white;
+}
+
+h2{
+    margin-bottom:20px;
+    font-weight:600;
+    letter-spacing:1px;
+}
+
+input, select{
+    width:100%;
+    padding:12px;
+    margin:12px 0;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+    background:rgba(255,255,255,0.2);
+    color:white;
+}
+
+input::placeholder{
+    color:#eee;
+}
+
+select option{
+    color:black;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    background:linear-gradient(90deg,#ff9966,#ff5e62);
+    color:white;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+button:hover{
+    transform:scale(1.05);
+    box-shadow:0 5px 15px rgba(0,0,0,0.4);
+}
+</style>
+
+</head>
+
+<body>
+<div class="box">
+    <h2>Colorful Calculator</h2>
+
+    <form th:action="@{/calculate}" method="post">
+        <input type="number" name="num1" placeholder="First Number" required>
+        <input type="number" name="num2" placeholder="Second Number" required>
+
+        <select name="operation">
+            <option value="add">Add</option>
+            <option value="sub">Subtract</option>
+            <option value="mul">Multiply</option>
+            <option value="div">Divide</option>
+        </select>
+
+        <button type="submit">Calculate</button>
+    </form>
+</div>
+</body>
+</html>
