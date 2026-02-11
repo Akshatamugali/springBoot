@@ -37,4 +37,9 @@ public class StudentService {
 	public void deleteStudent(int rollNo) {
 		studentrepo.deleteById(rollNo);
 	}
+	
+	public Student getStudentbyEmail(String email) {
+		Student st=studentrepo.findByEmail(email);
+		return st;
+	}
 }
